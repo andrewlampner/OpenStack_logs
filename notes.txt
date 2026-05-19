@@ -1,0 +1,33 @@
+The output should have:
+
+1. Total lines parsed
+2. Start/End times
+3. Severity Counts: Trace, Debug, Info, Audit, Warning, Error, Critical
+4. Top 5 most common HTTP requests;
+5. Performance Metrics.  Slowest/Average API response time.  Include info for the slowest response time.
+6. list instances for each VM through the logs with timestamps.
+
+
+Types of logs:
+nova-api.log: HTTP requests
+nova-compute.log: Stuff related to VMs.  Not really anything interesting other than stuff for part 6.
+nova-scheduler.log: nothing super interesting.  just grab the log level and move on
+
+Data structures:
+
+1. Hashmap - Most common HTTP requests
+    key: request
+    value: count
+
+2. Dynamic array of strings - VM lifecycle.
+
+
+File structure:
+
+main.c: main() function
+
+log: header/function files for the log parser
+
+hashmap: header/function files for the hashmap
+
+dyn_array: header/function files for the dynamic array
