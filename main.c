@@ -18,6 +18,8 @@ int main()
         printf("Output file failed to load.");
         return 2;
     }
+    Table table;   
+    initTable(&table);
 
     logStatistics logStats = {0};
 
@@ -43,7 +45,7 @@ int main()
         
         currentRead = nextRead;
         
-        processLog(currentLine, currentRead, &logStats);
+        processLog(currentLine, currentRead, &logStats, &table);
 
         nextRead = getline(&nextLine, &nextLength, logFile);
         

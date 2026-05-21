@@ -1,3 +1,4 @@
+#include "APIMicroFunctions.h"
 #include "log.h"
 #include <stdlib.h>
 #include <string.h>
@@ -28,39 +29,31 @@ char* retrieveTimeStamp(char* line){
     return NULL;
 }
 /*=================================================================================================*/
-void processLog(char* line, ssize_t length, logStatistics* stats){
-    if (line[5] == 'a') processAPILog(line, length, &stats);
+void processLog(char* line, ssize_t length, logStatistics* stats, Table* table){
+    if (line[5] == 'a') processAPILog(line, length, &stats, &table);
     if (line[5] == 'c') processComputeLog(line, length, &stats);
     if (line[5] == 's') processSchedulerLog(line, &stats);
     return;
 }
 /*=================================================================================================*/
 //in this function I need to:
-//grab severity. event codes start at 60.
-//determine if this is the slowest time stamp so far.  last byte is length - 1.
-//request to hash map and increment counter, so we can grab the most common API requests later
-void processAPILog(char* line, ssize_t length, logStatistics* stats){
-    for (int i = 60; i < 68; i++){
-        if (line[i] == 'T') stats->traceCount++; break;
-        if (line[i] == 'D') stats->debugCount++; break;
-        if (line[i] == 'I') stats->infoCount++; break;
-        if (line[i] == 'A') stats->auditCount++; break;
-        if (line[i] == 'W') stats->warningCount++; break;
-        if (line[i] == 'E') stats->errorCount++; break;
-        if (line[i] == 'C') stats->criticalCount++; break;
-    }
+//(1) grab severity. event codes start at 60.
+//(2) add to the average API struct.
+//(3) determine if this is slowest API request.  last byte is length - 1.
+//(4) request to hash map and increment counter, so we can grab the most common API requests later
+void processAPILog(char* line, ssize_t length, logStatistics* stats, Table* table){
+    
+    processAPILogSeverity(line, &stats);
 
-    char* timeStr = malloc(13 * sizeof(char));
-    int timeLength = 0;
-    for (int i = 1; i < length; i++){
-        if (line[length - i] == ' '){
-            break;
-        } 
-        timeLength++;
-    }
+    double requestTime = retrieveAPIRequestTime(line, length, &stats);
 
-    strncpy(timeStr, line + (length - timeLength), timeLength);
-    timeStr[timeLength] = '\0';
+    averageAPITime(requestTime, &stats);
+
+    char* requestString = retrieveAPIRequestString(line, length);
+
+    evaluateSlowestAPITime(requestString, requestTime, &stats);
+
+    insertIntoHashMap(requestString, &table);
 }
 /*=================================================================================================*/
 void processComputeLog(char* line, ssize_t length, logStatistics* stats){
