@@ -20,8 +20,6 @@ int main()
     }
 
     logStatistics logStats = {0};
-    logStats.startTime = calloc(15, sizeof(char));
-    logStats.endTime = calloc(15, sizeof(char));
 
     char *currentLine = NULL;
     size_t currentLength = 0;
@@ -32,7 +30,7 @@ int main()
     ssize_t nextRead;
 
     nextRead = getline(&nextLine, &nextLength, logFile);
-    logStats.startTime = retrieveStartTime(nextLine);
+    logStats.startTime = retrieveTimeStamp(nextLine);
 
     while (nextRead != -1){
         char* temp = currentLine;
@@ -45,12 +43,12 @@ int main()
         
         currentRead = nextRead;
         
-        processLog(currentLine);
+        processLog(currentLine, currentRead, &logStats);
 
         nextRead = getline(&nextLine, &nextLength, logFile);
         
         if (nextRead == -1) {
-            logStats.endTime = retrieveEndTime(nextLine);
+            logStats.endTime = retrieveTimeStamp(nextLine);
         }
     }
     free(currentLine);
