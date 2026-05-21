@@ -29,6 +29,4 @@ void processAPILog(char* line, ssize_t length, logStatistics* stats);
 void checkSlowestRequestTime(char* time, logStatistics* stats);
 void processComputeLog(char* line, ssize_t length, logStatistics* stats);
 void processSchedulerLog(char* line, logStatistics* stats);
-void printStartTime(char* startTime);
-void printEndTime(char* endTime);
-void printErrorCodes(int trace, int debug, int info, int audit, int warning, int error, int critical);
+
