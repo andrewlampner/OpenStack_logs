@@ -9,12 +9,12 @@ void initTable(Table* table){
     table->count = 0;
     table->entries = NULL;
 }
-
+/*=================================================================================================*/
 void freeTable(Table* table){
     free(table->entries);
     initTable(table);
 }
-
+/*=================================================================================================*/
 #define FNV_PRIME 16777619;
 #define FNV_OFFSET_BASIS 2166136261U;
 
@@ -27,7 +27,7 @@ uint32_t FNV1aHash (const char* input){
     }
     return hash;
 }
-
+/*=================================================================================================*/
 void insertTable(Table* table, APIRequest* key){
     uint32_t hash = FNV1aHash(key->request);
     key->hash = hash;
@@ -52,7 +52,7 @@ void insertTable(Table* table, APIRequest* key){
     table->count++;
     return;
 }
-
+/*=================================================================================================*/
 void growTable(Table* table){
     int oldCapacity = table->capacity;
     Entry* oldEntry = table->entries;

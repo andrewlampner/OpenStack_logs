@@ -40,7 +40,7 @@ void averageAPITime (double requestTime, logStatistics* stats){
 }
 /*=================================================================================================*/
 char* retrieveAPIRequestString(char* line, ssize_t length){
-    size_t offset = 200;
+    size_t offset = 100;
     if (length <= offset) return NULL;
     
     char* firstQuote = strchr(line + offset, '"');
