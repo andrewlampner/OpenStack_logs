@@ -20,10 +20,8 @@ typedef struct {
 }VMmasterList;
 
 void initEventArray (virtualMachine* virtualMachine);
-void freeEventArray (virtualMachine* virtualMachine);
 void insertVMEvent (virtualMachine* virtualMachine, char* time, char* event);
 void growEventArray(virtualMachine* virtualMachine);
-
 void initVMList(VMmasterList* VMList);
 void freeVMList(VMmasterList* VMList);
 void insertVMList(VMmasterList* VMList, char* time, char* event, char* UID);

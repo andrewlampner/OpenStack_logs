@@ -1,4 +1,6 @@
+#pragma once
 #include "hashmap.h"
+#include "dyn_array.h"
 #include <stddef.h>
 #include <sys/types.h>
 
@@ -24,9 +26,9 @@ typedef struct {
 } logStatistics;
 
 char* retrieveTimeStamp(char* line);
-void processLog(char* line, ssize_t length, logStatistics* stats, Table* table);
+void processLog(char* line, ssize_t length, logStatistics* stats, Table* table, VMmasterList* VMList);
 void processAPILog(char* line, ssize_t length, logStatistics* stats, Table* table);
 void checkSlowestRequestTime(char* time, logStatistics* stats);
-void processComputeLog(char* line, ssize_t length, logStatistics* stats);
+void processComputeLog(char* line, ssize_t length, logStatistics* stats, VMmasterList* VMList);
 void processSchedulerLog(char* line, logStatistics* stats);
 

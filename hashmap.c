@@ -8,11 +8,22 @@ void initTable(Table* table){
     table->capacity = 0;
     table->count = 0;
     table->entries = NULL;
+    return;
 }
 /*=================================================================================================*/
 void freeTable(Table* table){
+    if (table == NULL || table->entries == NULL) return;
+    for (int i = 0; i < table->capacity; i++){
+        APIRequest* node = table->entries[i].key;
+        if(node != NULL){  
+            free(node->request);
+            free(node);
+            table->entries[i].key = NULL;
+        }
+    }
     free(table->entries);
-    initTable(table);
+    table->entries = NULL;
+    return;
 }
 /*=================================================================================================*/
 #define FNV_PRIME 16777619;
@@ -28,7 +39,7 @@ uint32_t FNV1aHash (const char* input){
     return hash;
 }
 /*=================================================================================================*/
-void insertTable(Table* table, APIRequest* key){
+int insertTable(Table* table, APIRequest* key){
     uint32_t hash = FNV1aHash(key->request);
     key->hash = hash;
     key->length = strlen(key->request);
@@ -41,16 +52,21 @@ void insertTable(Table* table, APIRequest* key){
     while (table->entries[index].key != NULL){
         if (strcmp(table->entries[index].key->request, key->request) == 0){
             table->entries[index].count++;
-            return;
+            return 0;
         }
         else {
             index  = (index + 1) % table->capacity;
         }
     }
-    table->entries[index].key = key;
+    table->entries[index].key = calloc(1, sizeof(APIRequest));
+    table->entries[index].key->request = strdup(key->request);
+    free(key->request);
+    table->entries[index].key->hash = key->hash;
+    table->entries[index].key->length = key->length;
+    free(key);
     table->entries[index].count++;
     table->count++;
-    return;
+    return 1;
 }
 /*=================================================================================================*/
 void growTable(Table* table){
@@ -80,4 +96,5 @@ void growTable(Table* table){
         table->entries[newIndex].count = current->count;
         table->count++;
     }
+    free(oldEntry);
 }

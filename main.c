@@ -1,6 +1,7 @@
 #include "dyn_array.h"
 #include "hashmap.h"
 #include "log.h"
+#include "print.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -21,6 +22,14 @@ int main()
     Table table;   
     initTable(&table);
 
+    virtualMachine* VM;
+    VM = (virtualMachine*)malloc(sizeof(virtualMachine));
+    initEventArray(VM);
+
+    VMmasterList* VMList;
+    VMList = (VMmasterList*)malloc(sizeof(VMmasterList));
+    initVMList(VMList);
+
     logStatistics logStats = {0};
 
     char *currentLine = NULL;
@@ -32,7 +41,11 @@ int main()
     ssize_t nextRead;
 
     nextRead = getline(&nextLine, &nextLength, logFile);
-    logStats.startTime = retrieveTimeStamp(nextLine);
+    char* startTimeStamp = retrieveTimeStamp(nextLine);
+    if (startTimeStamp == NULL) free(startTimeStamp);
+    if (startTimeStamp != NULL){
+        logStats.startTime = startTimeStamp;
+    }
 
     while (nextRead != -1){
         char* temp = currentLine;
@@ -45,16 +58,32 @@ int main()
         
         currentRead = nextRead;
         
-        processLog(currentLine, currentRead, &logStats, &table);
-
+        processLog(currentLine, currentRead, &logStats, &table, VMList);
         nextRead = getline(&nextLine, &nextLength, logFile);
         
         if (nextRead == -1) {
-            logStats.endTime = retrieveTimeStamp(nextLine);
+            char* endTimeStamp = retrieveTimeStamp(nextLine);
+            if (endTimeStamp == NULL) free(endTimeStamp);
+            if (endTimeStamp != NULL){
+                logStats.endTime = endTimeStamp;
+            }         
         }
+        logStats.lineCount++;
     }
+
+
+    masterPrintFunction(outputFile, &logStats, VMList, &table);
+
+    freeVMList(VMList);
+    free(VMList);
+    free(VM);
+    free(startTimeStamp);
+    free(logStats.endTime);
+    free(logStats.slowestAPI.request);
     free(currentLine);
     free(nextLine);
+    freeTable(&table);
+
     fclose(logFile);
     fclose(outputFile);
     return 0;

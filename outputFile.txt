@@ -1,0 +1,202 @@
+**===========================================================================================**
+OpenStack Log Parser
+Lines parsed: 2000
+Start time:  2017-05-16 00:00:00.008
+End time: 2017-05-16 00:14:47.663 
+**===========================================================================================**
+Log Severity Count
+
+Trace:         0
+Debug:         0
+Info:          1969
+Audit:         0
+Warning:       31
+Error:         0
+Crititcal:     0
+**===========================================================================================**
+API Performance 
+
+Average API response time: 0.234454
+
+Slowest performing HTTP request: 
+Time: 0.711674
+Request: POST /v2/54fadb412c4e40cdbaed9335e4c35a9e/servers HTTP/1.1
+
+**===========================================================================================**
+Most Common HTTP Requests
+
+GET /v2/54fadb412c4e40cdbaed9335e4c35a9e/servers/detail HTTP/1.1
+count: 698
+
+GET /openstack/2013-10-17/vendor_data.json HTTP/1.1
+count: 44
+
+POST /v2/e9746973ac574c6b8a9e8857f56a7608/os-server-external-events HTTP/1.1
+count: 43
+
+GET /openstack/2013-10-17/meta_data.json HTTP/1.1
+count: 35
+
+GET /openstack/2012-08-10/meta_data.json HTTP/1.1
+count: 22
+
+**===========================================================================================**
+Virtual Machine Lifecycle Events
+
+UID: b9000564-fe1a-409b-b8cc-1e88b294cd1d
+2017-05-16 00:00:04.500 : VM Started
+2017-05-16 00:00:04.562 : VM Paused
+2017-05-16 00:00:10.296 : VM Resumed
+2017-05-16 00:00:10.417 : VM Resumed
+2017-05-16 00:00:32.974 : VM Stopped
+
+UID: 96abccce-8d1f-4e07-b6d1-4b2ab87e23b4
+2017-05-16 00:00:44.514 : VM Started
+2017-05-16 00:00:44.582 : VM Paused
+2017-05-16 00:00:51.650 : VM Resumed
+2017-05-16 00:00:51.771 : VM Resumed
+2017-05-16 00:01:14.735 : VM Stopped
+
+UID: b562ef10-ba2d-48ae-bf4a-18666cba4a51
+2017-05-16 00:01:26.460 : VM Started
+2017-05-16 00:01:26.524 : VM Paused
+2017-05-16 00:01:32.985 : VM Resumed
+2017-05-16 00:01:33.105 : VM Resumed
+2017-05-16 00:01:55.266 : VM Stopped
+
+UID: 78dc1847-8848-49cc-933e-9239b12c9dcf
+2017-05-16 00:02:07.339 : VM Started
+2017-05-16 00:02:07.403 : VM Paused
+2017-05-16 00:02:14.351 : VM Resumed
+2017-05-16 00:02:14.477 : VM Resumed
+2017-05-16 00:02:37.163 : VM Stopped
+
+UID: 95960536-049b-41f6-9049-05fc479b6a7c
+2017-05-16 00:02:48.985 : VM Started
+2017-05-16 00:02:49.156 : VM Paused
+2017-05-16 00:02:55.637 : VM Resumed
+2017-05-16 00:02:55.757 : VM Resumed
+2017-05-16 00:03:19.284 : VM Stopped
+
+UID: 7e7cc42f-3cb9-4d91-804c-f5a32d54f1c5
+2017-05-16 00:03:31.011 : VM Started
+2017-05-16 00:03:31.081 : VM Paused
+2017-05-16 00:03:36.996 : VM Resumed
+2017-05-16 00:03:37.115 : VM Resumed
+2017-05-16 00:03:59.244 : VM Stopped
+
+UID: af5f7392-f7d4-4298-b647-c98924c64aa1
+2017-05-16 00:04:11.255 : VM Started
+2017-05-16 00:04:11.320 : VM Paused
+2017-05-16 00:04:18.462 : VM Resumed
+2017-05-16 00:04:18.582 : VM Resumed
+2017-05-16 00:04:41.170 : VM Stopped
+
+UID: ae3a1b5d-eec1-45bb-b76a-c59d83b1471f
+2017-05-16 00:04:52.697 : VM Started
+2017-05-16 00:04:52.767 : VM Paused
+2017-05-16 00:05:00.004 : VM Resumed
+2017-05-16 00:05:00.120 : VM Resumed
+2017-05-16 00:05:23.100 : VM Stopped
+
+UID: 43204226-2f87-4da7-b7ee-4d20cc66e846
+2017-05-16 00:05:34.911 : VM Started
+2017-05-16 00:05:34.979 : VM Paused
+2017-05-16 00:05:41.229 : VM Resumed
+2017-05-16 00:05:41.352 : VM Resumed
+2017-05-16 00:06:03.772 : VM Stopped
+
+UID: fecdd5a9-3ca0-4c82-9336-63b7774f738e
+2017-05-16 00:06:15.870 : VM Started
+2017-05-16 00:06:15.931 : VM Paused
+2017-05-16 00:06:22.558 : VM Resumed
+2017-05-16 00:06:22.690 : VM Resumed
+2017-05-16 00:06:45.169 : VM Stopped
+
+UID: 63a0d960-70b6-44c6-b606-491478a5cadf
+2017-05-16 00:06:56.714 : VM Started
+2017-05-16 00:06:56.781 : VM Paused
+2017-05-16 00:07:03.936 : VM Resumed
+2017-05-16 00:07:04.066 : VM Resumed
+2017-05-16 00:07:27.105 : VM Stopped
+
+UID: d54b44eb-2d1a-4aa2-ba6b-074d35f8f12c
+2017-05-16 00:07:39.377 : VM Started
+2017-05-16 00:07:39.443 : VM Paused
+2017-05-16 00:07:45.243 : VM Resumed
+2017-05-16 00:07:45.415 : VM Resumed
+2017-05-16 00:08:08.769 : VM Stopped
+
+UID: 17288ea8-cbf4-4f0e-94fe-853fd2735f29
+2017-05-16 00:08:20.238 : VM Started
+2017-05-16 00:08:20.330 : VM Paused
+2017-05-16 00:08:26.594 : VM Resumed
+2017-05-16 00:08:26.714 : VM Resumed
+2017-05-16 00:08:49.186 : VM Stopped
+
+UID: 70c1714b-c11b-4c88-b300-239afe1f5ff8
+2017-05-16 00:09:01.018 : VM Started
+2017-05-16 00:09:01.081 : VM Paused
+2017-05-16 00:09:08.044 : VM Resumed
+2017-05-16 00:09:08.163 : VM Resumed
+2017-05-16 00:09:31.092 : VM Stopped
+
+UID: bf8c824d-f099-4433-a41e-e3da7578262e
+2017-05-16 00:09:43.328 : VM Started
+2017-05-16 00:09:43.389 : VM Paused
+2017-05-16 00:09:49.420 : VM Resumed
+2017-05-16 00:09:49.541 : VM Resumed
+2017-05-16 00:10:12.953 : VM Stopped
+
+UID: be793e89-2cc3-4f99-9884-9c6a624a84bc
+2017-05-16 00:10:24.241 : VM Started
+2017-05-16 00:10:24.304 : VM Paused
+2017-05-16 00:10:30.861 : VM Resumed
+2017-05-16 00:10:30.994 : VM Resumed
+2017-05-16 00:10:53.150 : VM Stopped
+
+UID: a015cf14-84bb-4156-a48d-7c4824ac7a9d
+2017-05-16 00:11:04.923 : VM Started
+2017-05-16 00:11:04.991 : VM Paused
+2017-05-16 00:11:12.162 : VM Resumed
+2017-05-16 00:11:12.402 : VM Resumed
+2017-05-16 00:11:34.908 : VM Stopped
+
+UID: d96a117b-0193-4549-bdcc-63b917273d1d
+2017-05-16 00:11:46.681 : VM Started
+2017-05-16 00:11:46.754 : VM Paused
+2017-05-16 00:11:53.469 : VM Resumed
+2017-05-16 00:11:53.592 : VM Resumed
+2017-05-16 00:12:16.898 : VM Stopped
+
+UID: d6b7bd36-2943-4363-9235-fffdd89ea40e
+2017-05-16 00:12:28.718 : VM Started
+2017-05-16 00:12:28.783 : VM Paused
+2017-05-16 00:12:34.930 : VM Resumed
+2017-05-16 00:12:35.072 : VM Resumed
+2017-05-16 00:12:57.370 : VM Stopped
+
+UID: 127e769a-4fe6-4548-93b1-513ac51e0452
+2017-05-16 00:13:09.118 : VM Started
+2017-05-16 00:13:09.185 : VM Paused
+2017-05-16 00:13:16.304 : VM Resumed
+2017-05-16 00:13:16.425 : VM Resumed
+2017-05-16 00:13:38.964 : VM Stopped
+
+UID: c62f4f25-982c-4ea2-b5e4-93000edfcfbf
+2017-05-16 00:13:50.667 : VM Started
+2017-05-16 00:13:50.738 : VM Paused
+2017-05-16 00:13:57.747 : VM Resumed
+2017-05-16 00:13:57.865 : VM Resumed
+2017-05-16 00:14:21.038 : VM Stopped
+
+UID: faf974ea-cba5-4e1b-93f4-3a3bc606006f
+2017-05-16 00:14:33.197 : VM Started
+2017-05-16 00:14:33.266 : VM Paused
+2017-05-16 00:14:39.059 : VM Resumed
+2017-05-16 00:14:39.179 : VM Resumed
+
+
+
+
+End of summary.

@@ -3,7 +3,7 @@
 #include <sys/types.h>
 
 void processAPILogSeverity (char* line, logStatistics* stats);
-double retrieveAPIRequestTime (char* line, ssize_t length, logStatistics* stats);
+double retrieveAPIRequestTime (char* line, ssize_t length);
 char* retrieveAPIRequestString(char* line, ssize_t length);
 void evaluateSlowestAPITime (char* request, double requestTime, logStatistics* stats);
 void averageAPITime (double requestTime, logStatistics* stats);

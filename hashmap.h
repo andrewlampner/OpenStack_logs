@@ -18,8 +18,8 @@ typedef struct {
     Entry* entries;
 } Table;
 
-void initTable (Table* table);
-void freeTable (Table* table);
-uint32_t FNV1aHash (const char* input);
-void insertTable(Table* table, APIRequest* key);
+void initTable(Table* table);
+void freeTable(Table* table);
+uint32_t FNV1aHash(const char* input);
+int insertTable(Table* table, APIRequest* key);
 void growTable(Table* table);
